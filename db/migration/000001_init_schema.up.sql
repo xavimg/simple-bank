@@ -1,23 +1,23 @@
 CREATE TABLE "accounts" (
   "id" bigserial PRIMARY KEY,
-  "owner" varchar,
-  "balance" bigint,
-  "currency" varchar,
+  "owner" varchar not null,
+  "balance" bigint not null,
+  "currency" varchar not null,
   "created_at" timestamptz NOT NULL DEFAULT (now())
 );
 
 CREATE TABLE "entries" (
-  "id" bigserial,
-  "account_id" bigint,
-  "amount" bigint,
+  "id" bigserial not null,
+  "account_id" bigint not null,
+  "amount" bigint not null,
   "created_at" timestamptz NOT NULL DEFAULT (now())
 );
 
 CREATE TABLE "transfers" (
-  "id" bigserial,
-  "from_account_id" bigint,
-  "to_account_id" bigint,
-  "amount" bigint,
+  "id" bigserial not null,
+  "from_account_id" bigint not null,
+  "to_account_id" bigint not null,
+  "amount" bigint not null,
   "created_at" timestamptz NOT NULL DEFAULT (now())
 );
 
