@@ -1,3 +1,6 @@
+server:
+	go run main.go
+
 createdb:
 	docker exec -it postgres12 createdb --username=xmg simple_bank
 
@@ -17,4 +20,4 @@ test:
 	go clean -testcache
 	go test -v -cover ./...
 
-.PHONY: postgres createdb dropdb migrate_up migrate_down sqlc test
+.PHONY: server postgres createdb dropdb migrate_up migrate_down sqlc test
